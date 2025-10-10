@@ -3,11 +3,11 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AppLayout } from "./shell/AppLayout.tsx";
-import Home from "./pages/Home.jsx";
-import Projects from "./pages/Projects.jsx";
-import ProjectDetail from "./pages/ProjectDetail.jsx";
-import About from "./pages/About.jsx";
-import Contact from "./pages/Contact.jsx";
+import Home from "./pages/Home.tsx";
+import Projects from "./pages/Projects.tsx";
+import ProjectDetail from "./pages/ProjectDetail.tsx";
+import About from "./pages/About.tsx";
+import Contact from "./pages/Contact.tsx";
 
 const router = createBrowserRouter([
   { element: <AppLayout />, children: [
@@ -19,4 +19,5 @@ const router = createBrowserRouter([
   ]},
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(<RouterProvider router={router} />);
+ReactDOM.createRoot(document.getElementById("root")!)
+  .render(<RouterProvider router={router} />);
