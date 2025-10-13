@@ -1,55 +1,44 @@
 // src/shell/AppLayout.tsx
 import { Outlet, NavLink } from "react-router-dom";
+import { useThemeToggle } from "./ThemeToggle"
+import { Sun, Moon } from "lucide-react"
 
-export const ThemeToggle = () => {
-  const onClick = () => {
-    const html = document.documentElement;
-    const isDark = html.classList.toggle("dark");
-    html.setAttribute("data-theme", isDark ? "dark" : "light");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-  };
+const ThemeToggleButton: React.FC = () => {
+  const { theme, toggle } = useThemeToggle();
   return (
     <button
-      onClick={onClick}
-      className="rounded-full border border-white/10 p-2 hover:bg-white/5"
+      onClick={toggle}
+      className="rounded-full border border-zinc-900/10 dark:border-white/10 p-2 hover:bg-zinc-900/5 dark:hover:bg-white/5"
       aria-label="Växla tema"
+      title={theme === "dark" ? "Byt till ljust läge" : "Byt till mörkt läge"}
     >
-      ☾/☀︎
+      {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
     </button>
   );
 };
 
-export const AppLayout = () => {
+export const AppLayout: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-zinc-950 text-zinc-100">
-      <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/60">
-        {/* fix: max-w-6xl (inte 6x1) */}
+    // Ljus som default + dark: varianter (inte alltid-mörkt!)
+    <div className="min-h-screen flex flex-col bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
+      <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-zinc-950/60 border-b border-zinc-900/10 dark:border-white/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
           <NavLink to="/" className="font-extrabold text-lg tracking-tight no-underline">
             du.dev
           </NavLink>
 
           <nav className="flex items-center gap-6 text-sm">
-            {/* fix: korrekt className-funktion + label */}
-            <NavLink
-              to="/projects"
-              className={({ isActive }: {isActive: boolean} ) => (isActive ? "font-semibold" : "")}
-            >
+            <NavLink to="/projects" className={({ isActive }) => (isActive ? "font-semibold" : "")}>
               Projekt
             </NavLink>
-            <NavLink
-              to="/about"
-              className={({ isActive }: {isActive: boolean} ) => (isActive ? "font-semibold" : "")}
-            >
+            <NavLink to="/about" className={({ isActive }) => (isActive ? "font-semibold" : "")}>
               Om mig
             </NavLink>
-            <NavLink
-              to="/contact"
-              className={({ isActive }: {isActive: boolean} ) => (isActive ? "font-semibold" : "")}
-            >
+            <NavLink to="/contact" className={({ isActive }) => (isActive ? "font-semibold" : "")}>
               Kontakt
             </NavLink>
-            <ThemeToggle />
+
+            <ThemeToggleButton />
           </nav>
         </div>
       </header>
@@ -58,9 +47,8 @@ export const AppLayout = () => {
         <Outlet />
       </main>
 
-      <footer className="mt-12 border-t border-white/10">
-        {/* fix: max-w-6xl (inte 6x1) */}
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm text-zinc-400 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <footer className="mt-12 border-t border-zinc-900/10 dark:border-white/10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm text-zinc-500 dark:text-zinc-400 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p>© {new Date().getFullYear()} Robin Jörgensen</p>
           <p>Byggd med React + Tailwind</p>
         </div>

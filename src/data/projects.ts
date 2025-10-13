@@ -10,18 +10,25 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "test",
-    slug: "test",
-    description: "Drag & drop, localStorage. React + TS.",
-    tags: ["React", "TypeScript"],
-    repoUrl: "https://github.com/Robinjorgensen123?tab=repositories",
+    title: "Quiztopia ",
+    slug: "quiztopia-API",
+    description: "serverless framework, middy. JSON Web Token., API Gateway, AWS-Lambda, DynamoDB",
+    tags: ["AWS", "LAMBDA", "Serverless", "DynamoDB"],
+    repoUrl: "https://github.com/Robinjorgensen123/quiztopia-api",
     liveUrl: ""
   },
   {
-    title: "Bildgalleri",
+    title: "Filmrecentions Platform",
     slug: "image-galleri",
-    description: "Lazy loading & keyboard nav.",
-    tags: ["React"],
-    repoUrl: "https://github.com/Robinjorgensen123?tab=repositories"
+    description: "NoSql,Mongoose,API",
+    tags: ["Mongoose"],
+    repoUrl: "https://github.com/Robinjorgensen123/nosql-filmrecentionsplatform"
+  },
+  {
+    title: "Ankan Airbean",
+    slug: "Ankan-airbean",
+    description: "frontend-ramverk, typescript",
+    tags: ["React", "Typescript"],
+    repoUrl: "https://github.com/Robinjorgensen123/frontend-ramverk-yumyum-exam/blob/main/index.html"
   }
 ]

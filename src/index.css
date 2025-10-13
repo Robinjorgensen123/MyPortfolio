@@ -1,14 +1,17 @@
-/* src/index.css */
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Egen accentfärg som CSS-variabel (enkelt & kompatibelt) */
 :root { --color-primary: #7c3aed; }
 
-/* Små byggstenar */
 @layer components {
   .btn { @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-semibold shadow; }
   .btn-primary { @apply text-white; background: var(--color-primary); }
-  .btn-ghost { @apply bg-transparent border border-white/10 text-zinc-100 hover:text-white; }
-  .card { @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur; }
-  .tag { @apply text-xs px-2.5 py-1 rounded-full border border-white/10 bg-white/5; }
+  .btn-ghost { @apply bg-transparent border border-zinc-900/10 text-zinc-900 hover:text-black dark:border-white/10 dark:text-zinc-100 dark:hover:text-white; }
+  .card { @apply rounded-2xl border border-zinc-900/10 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur; }
+  .tag { @apply text-xs px-2.5 py-1 rounded-full border border-zinc-900/10 dark:border-white/10 bg-white/40 dark:bg-white/5; }
+}
+
+@layer base {
+  body { @apply bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100; }
 }
