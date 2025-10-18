@@ -1,30 +1,38 @@
 <!doctype html>
-<html lang="en">
+<html lang="sv">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my-portfolio</title>
+    <title>Robin Jörgensen – Portfolio</title>
+
+   
+    <meta name="description" content="Fullstack JS-utvecklare. React, Node, AWS. Se mina projekt och kontakta mig för LIA." />
+    <meta property="og:title" content="Robin Jörgensen – Portfolio" />
+    <meta property="og:description" content="Fullstack JS-utvecklare. React, Node, AWS." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dindomän.se/" />
+    <meta property="og:image" content="/og-cover.png" />
+    <link rel="canonical" href="https://dindomän.se/" />
+
+    <!-- Theme bootstrap (körs före render) -->
+    <script>
+      (() => {
+        try {
+          const saved = localStorage.getItem('theme');
+          const isDark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const html = document.documentElement;
+          html.classList.toggle('dark', isDark);
+          html.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        } catch {}
+      })();
+    </script>
   </head>
   <body>
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white text-black dark:bg-black dark:text-white px-3 py-2 rounded">
+      Hoppa till innehåll
+    </a>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx">
-      (() => {
-  try {
-    const saved = localStorage.getItem('theme');
-    const isDark =
-      saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    const html = document.documentElement;
-    if (isDark) {
-      html.classList.add('dark');
-      html.setAttribute('data-theme', 'dark');
-    } else {
-      html.classList.remove('dark');
-      html.setAttribute('data-theme', 'light');
-    }
-  } catch {}
-})();
-    </script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
