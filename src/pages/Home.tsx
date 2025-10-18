@@ -5,7 +5,17 @@ import { projects } from "../data/projects"
 
 const Hero: React.FC = () => (
     <section className="relative py-24 sm:py-32 overflow-hidden">
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+       <div className="mb-2">
+        <span
+          className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold
+                     border border-white/10 bg-white/40 dark:bg-white/10 backdrop-blur
+                     whitespace-nowrap"
+        >
+          <span className="h-2 w-2 rounded-full bg-yellow-500 animate-pulse" />
+          Work in progress.....
+        </span>
+      </div>
       <p className="text-m tracking-widest text-violet-300/90 uppercase">Fullstack JavaScript</p>
       <h1 className="mt-3 text-4xl sm:text-6xl font-extrabold leading-tight">Robin Jörgensen</h1>
 <p><a className="inline-flex mt-3 items-center gap-4 rounded-xl px-4 py-2 font-bold border border-white/50" href="https://github.com/Robinjorgensen123" target="_blank" rel="noopener noreferrer"><strong>GitHub </strong></a></p>
