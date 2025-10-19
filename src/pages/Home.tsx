@@ -2,7 +2,7 @@
 import ProjectCard from "../components/ProjectCard"
 import React from "react";
 import { projects } from "../data/projects"
-import Reveal from "../lib/reveal";
+import Reveal from "../lib/Reveal"
 import { Link } from "react-router-dom"
 import SkillsSection from "../components/skillsSection";
 
