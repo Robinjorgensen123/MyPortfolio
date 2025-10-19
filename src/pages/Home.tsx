@@ -1,16 +1,15 @@
-
-import ProjectCard from "../components/ProjectCard"
+import ProjectCard from "../components/ProjectCard";
 import React from "react";
-import { projects } from "../data/projects"
-import Reveal from "../lib/Reveal"
-import { Link } from "react-router-dom"
+import { projects } from "../data/projects";
+import Reveal from "../lib/Reveal";
+import { Link } from "react-router-dom";
 import SkillsSection from "../components/skillsSection";
-
+import LiaNotice from "../components/LiaNotice";
 
 const Hero: React.FC = () => (
-    <section className="relative py-24 sm:py-32 overflow-hidden">
+  <section className="relative py-24 sm:py-32 overflow-hidden">
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-       <div className="mb-2">
+      <div className="max-w-2xl">
         <span
           className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold
                      border border-white/10 bg-white/40 dark:bg-white/10 backdrop-blur
@@ -22,66 +21,89 @@ const Hero: React.FC = () => (
       </div>
 
       <p className="text-sm tracking-widest text-violet-300/90 uppercase">
-      Fullstack JavaScript
+        Fullstack JavaScript
       </p>
-      <h1 className="mt-3 text-4xl sm:text-6xl font-extrabold leading-tight">Robin Jörgensen</h1>
+      <h1 className="mt-3 text-4xl sm:text-6xl font-extrabold leading-tight">
+        Robin Jörgensen
+      </h1>
 
-
-<p>
-  <a className="inline-flex mt-3 items-center gap-4 rounded-xl px-4 py-2 font-bold border border-white/50"
-   href="https://github.com/Robinjorgensen123" 
-   target="_blank" 
-   rel="noopener noreferrer"
-   >
-    <strong>GitHub </strong>
-    </a>
-    </p>
+      <p className="mt-3">
+        <a
+          className="inline-flex mt-3 items-center gap-4 rounded-xl px-4 py-2 font-bold border border-white/50"
+          href="https://github.com/Robinjorgensen123"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <strong>GitHub </strong>
+        </a>
+      </p>
       <div className="mt-8 flex gap-3">
         <Reveal>
-          <Link to="/projects" 
-          className="inline-flex items-center gap-2 rounded-xl px-4 py-2 font-semibold bg-violet-600 text-white"
+          <Link
+            to="/projects"
+            className="inline-flex items-center gap-2 rounded-xl px-4 py-2 font-semibold bg-violet-600 text-white"
           >
             Se projekt
-            </Link>
-            </Reveal>
+          </Link>
+        </Reveal>
         <Reveal>
-          <Link to="/contact"
-           className="inline-flex items-center gap-2 rounded-xl px-4 py-2 font-semibold border border-white/10"
-           >
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 rounded-xl px-4 py-2 font-semibold border border-white/10"
+          >
             Kontakta mig
-            </Link>
-            </Reveal>
+          </Link>
+        </Reveal>
       </div>
     </div>
 
+    <div className="absolute inset-y-0 right-0 w-1/2 hidden lg:flex items-center justify-center z-10 pointer-events-none">
+      <div className="pointer-events-auto px-6">
+        <LiaNotice
+          mode="inline"
+          title="Söker LIA"
+          lines={[
+            "Göteborg eller distans",
+            "Period 1: 13 jan – 30 maj 2026",
+            "Fullstack JavaScript",
+          ]}
+        />
+      </div>
+    </div>
 
-    <div 
+    <div
       className="absolute -right-20 -top-10 w-[40rem] h-[40rem] rounded-full blur-3xl opacity-30 pointer-events-none"
-      style={{background:'conic-gradient(from 90deg at 50% 50%, #7C3AED, #06B6D4, #7C3AED)'}} 
-      />
+      style={{
+        background:
+          "conic-gradient(from 90deg at 50% 50%, #7C3AED, #06B6D4, #7C3AED)",
+      }}
+    />
   </section>
 );
 
-
 const Home = () => {
-    const featured = projects.slice(0, 6);
-    return (
-           <>
+  const featured = projects.slice(0, 6);
+  return (
+    <>
       <Hero />
-      <SkillsSection/>
+      <SkillsSection />
 
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <p className="text-xs tracking-widest text-violet-300/90 uppercase">Utvalda</p>
+          <p className="text-xs tracking-widest text-violet-300/90 uppercase">
+            Utvalda
+          </p>
           <h2 className="mt-2 text-2xl sm:text-3xl font-bold">Projekt</h2>
           <p className="mt-2 text-zinc-400 max-w-2xl">Github.</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {featured.map(p => <ProjectCard key={p.slug} p={p} />)}
+          {featured.map((p) => (
+            <ProjectCard key={p.slug} p={p} />
+          ))}
         </div>
       </section>
     </>
-    )
-}
+  );
+};
 
 export default Home;
