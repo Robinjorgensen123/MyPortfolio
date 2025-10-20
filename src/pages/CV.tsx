@@ -15,7 +15,7 @@ const CV: React.FC = () => {
                         Öppna i ny flik
                     </a>
                     <a 
-                    href="/CV.PDF"
+                    href="/CV.pdf"
                     download
                     className="btn brn-primary"
                     >
