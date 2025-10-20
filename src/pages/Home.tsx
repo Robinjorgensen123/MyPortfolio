@@ -64,7 +64,8 @@ const Hero: React.FC = () => (
           title="Söker LIA"
           lines={[
             "Göteborg eller distans",
-            "Period 1: 13 jan – 30 maj 2026",
+            "Period 1: Vecka 2-11, 2026",
+            "Period 2: Vecka 14-23, 2026",
             "Fullstack JavaScript",
           ]}
         />
