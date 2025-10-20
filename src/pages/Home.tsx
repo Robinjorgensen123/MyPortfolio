@@ -1,30 +1,47 @@
-import ProjectCard from "../components/ProjectCard";
 import React from "react";
-import { projects } from "../data/projects";
-import Reveal from "../lib/Reveal";
 import { Link } from "react-router-dom";
-import SkillsSection from "../components/skillsSection";
-import LiaNotice from "../components/LiaNotice";
+import Reveal from "../lib/Reveal";
 import CinemaScreen from "../components/CinemaScreen";
+import CinemaContent from "../components/CinemaContent";
+import ProjectCard from "../components/ProjectCard";
+import SkillsSection from "../components/skillsSection";
+import { projects } from "../data/projects";
 
 const Hero: React.FC = () => (
   <section className="relative overflow-hidden h-[70vh] lg:h-[80vh]">
-    {/* Bioduk som fyller hela heron */}
+    {/* Bioduk som fyller heron */}
     <div className="absolute inset-0">
       <CinemaScreen
         widthClass="w-full h-full"
         heightClass="h-full"
-        align="center"   // eller "left"
+        align="center"
         delay={0.35}
-        lines={[
-          "Robin Jörgensen",
-          "Fullstack JavaScript – Göteborg eller distans",
-          "Period 1: Vecka 2–11, 2026  •  Period 2: Vecka 14–23, 2026",
-        ]}
+        lines={[]} // Texten visas av CinemaContent nedan
       />
     </div>
 
-    {/* Overlay-innehåll (knappar) */}
+    {/* Innehåll på bioduken (styrt via CinemaContent) */}
+    <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
+      <div className="pointer-events-auto w-[min(92vw,42rem)]">
+        <CinemaContent
+          title="Söker LIA"
+          lines={[
+            "Göteborg eller distans",
+            "Period 1: Vecka 2–11, 2026",
+            "Period 2: Vecka 14–23, 2026",
+          ]}
+          align="center"
+          size="md"
+          styleVariant="marquee"   // "glass" eller "none" funkar också
+          delayMs={400}
+          animateWords
+          replayable
+          replayLabel="Spela om"
+        />
+      </div>
+    </div>
+
+    {/* Knappar i nederkant */}
     <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
       <div className="flex flex-col justify-end h-full pb-8 gap-4">
         <div className="flex flex-wrap gap-3">
@@ -57,34 +74,6 @@ const Hero: React.FC = () => (
     </div>
   </section>
 );
-
-    {/* Marquee-ram för LIA-rutan */}
-    <div className="absolute inset-y-0 right-0 w-1/2 hidden lg:flex items-center justify-center z-10 pointer-events-none">
-      <div className="pointer-events-auto px-6 w-[32rem]">
-        <div className="marquee p-5">
-          <LiaNotice
-            mode="inline"
-            title="Söker LIA"
-            lines={[
-              "Göteborg eller distans",
-              "Period 1: Vecka 2–11, 2026",
-              "Period 2: Vecka 14–23, 2026",
-            ]}
-          />
-        </div>
-      </div>
-    </div>
-
-    {/* Spotlights (subtil ljussättning) */}
-    <div
-      className="absolute inset-0 pointer-events-none"
-      style={{
-        background:
-          "radial-gradient(600px 300px at 30% 10%, rgba(255,255,255,.08), transparent 60%), radial-gradient(800px 500px at 80% 0%, rgba(212,175,55,.12), transparent 60%)",
-      }}
-    />
-  
-
 
 const Home: React.FC = () => {
   const featured = projects.slice(0, 6);
