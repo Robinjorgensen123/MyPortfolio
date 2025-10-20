@@ -2,6 +2,7 @@
 import { Outlet, NavLink } from "react-router-dom";
 import { useThemeToggle } from "./ThemeToggle"
 import { Sun, Moon } from "lucide-react"
+import CurtainReveal  from "../components/CurtainReveal"
 
 const ThemeToggleButton: React.FC = () => {
   const { theme, toggle } = useThemeToggle();
@@ -21,6 +22,13 @@ export const AppLayout: React.FC = () => {
   return (
     // Ljus som default + dark: varianter (inte alltid-mörkt!)
     <div className="min-h-screen flex flex-col bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
+       <CurtainReveal
+        delay={250}
+        durationSec={3.0}       // justera hastighet
+        oncePerSession={true}   // sätt false om den ska spelas varje gång
+        imageUrl="/curtain.jpg" // filen i public/
+        // overlayOpacity={20}  // valfritt: mörk overlay, 0–100
+      />
       <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-zinc-950/60 border-b border-zinc-900/10 dark:border-white/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
           <NavLink to="/" className="font-extrabold text-lg tracking-tight no-underline">
