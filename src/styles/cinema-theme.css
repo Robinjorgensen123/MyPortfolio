@@ -1,0 +1,84 @@
+:root {
+    --cinema-bg: #0b0b0f;
+    --cinema-velvet: #6b0d12;
+    --cinema-velvet-2: #8a141a;
+    --cinema-gold: #d4af37;
+    --cinema-ivory: #f5e9d7;
+    --cinema-muted: #a8a29e;
+    --cinema-card: rgba(255,255,255,0.04);
+    --cinema-border: rgba(212,175,55,0.25);
+    --cinema-shadow: 0 30px 60px rgba(0,0,0,.45);
+}
+
+.bg-cinema {
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(212,175,55,.08), transparent 60%),
+    radial-gradient(1200px 600px at 80% -10%, rgba(212,175,55,.08), transparent 60%),
+    radial-gradient(800px 800px at 50% 20%, rgba(107,13,18,.5), transparent 60%),
+    linear-gradient(180deg, var(--cinema-bg), #08090c 60%, #05060a);
+}
+
+.card-cinema {
+  background: var(--cinema-card);
+  border: 1px solid var(--cinema-border);
+  box-shadow: var(--cinema-shadow);
+  backdrop-filter: blur(6px);
+}
+
+.text-gold { color: var(--cinema-gold); }
+.border-gold { border-color: var(--cinema-border); }
+
+.vignette:after{
+  content:"";
+  position: fixed; inset: 0; pointer-events:none;
+  box-shadow: inset 0 0 160px rgba(0,0,0,.6);
+}
+
+.filmstrip {
+  position: relative; height: 18px; border-top: 1px solid var(--cinema-border);
+  border-bottom: 1px solid var(--cinema-border);
+  background:
+    repeating-linear-gradient(90deg,
+      transparent 0 28px,
+      rgba(0,0,0,.35) 28px 36px,
+      transparent 36px 64px
+    );
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.ticket {
+  position: relative;
+  border: 1px solid var(--cinema-border);
+  background:
+    linear-gradient(180deg, rgba(212,175,55,.18), rgba(212,175,55,.08));
+  color: var(--cinema-ivory);
+  border-radius: 12px;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 95% 70%, 95% 100%, 5% 100%, 5% 70%, 0% 70%);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.ticket:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.35); }
+.ticket small { color: var(--cinema-gold); letter-spacing: .06em; }
+
+.marquee {
+  border: 1px solid var(--cinema-border);
+  background:
+    radial-gradient(1200px 300px at 50% -40%, rgba(212,175,55,.22), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  box-shadow: 0 0 0 1px rgba(255,255,255,.05) inset, 0 8px 30px rgba(0,0,0,.45);
+  border-radius: 18px;
+}
+
+.poster {
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.05) inset,
+    0 30px 60px rgba(0,0,0,.45);
+}
+
+
+.cinema-screen {
+    position: relative;
+    border-radius: 20px;
+    background:
+        radial-gradient(120%, 100)
+}

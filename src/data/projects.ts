@@ -28,7 +28,7 @@ export const projects: Project[] = [
     title: "Ankan Airbean",
     slug: "Ankan-airbean",
     description: "frontend-ramverk, typescript",
-    tags: ["React", "Typescript"],
+    tags: ["React", "TypeScript"],
     repoUrl: "https://github.com/Robinjorgensen123/frontend-ramverk-yumyum-exam/blob/main/index.html"
   }
 ]

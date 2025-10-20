@@ -10,7 +10,7 @@ export const useThemeToggle = () => {
   useEffect(() => {
     const html = document.documentElement;
     html.classList.toggle("dark", theme === "dark");
-    html.setAttribute("data-theme", theme);
+    html.setAttribute("dark-theme", theme);
     try { localStorage.setItem("theme", theme); } catch {}
   }, [theme]);
 

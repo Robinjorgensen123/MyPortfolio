@@ -90,7 +90,7 @@ const LiaNotice = ({
     <AnimatePresence>
       {show && (
         <div
-          className="absolut inset-y-0 right-0 z-50 w-full sm:w-[85vw] lg:w-[50vw] pointer-events-none"
+          className="absolute inset-y-0 right-0 z-50 w-full sm:w-[85vw] lg:w-[50vw] pointer-events-none"
           aria-hidden={false}
         >
           <div className="h-full p-4 sm:p-6 lg:p-8 pointer-events-auto">

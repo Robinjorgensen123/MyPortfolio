@@ -19,13 +19,13 @@ const ProjectDetail: React.FC = () => {
     const cover = p.images?.[0] || `https://picsum.photos/seed/${encodeURIComponent(p.slug)}/1200/700`;
     return (
         <article className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <Link to="/projects" className="text-sm text-zinc-400">← Tillbaka</Link>
+      <Link to="/projects" className="text-sm hover:text-gold">← Tillbaka</Link>
       <h1 className="mt-2 text-4xl font-extrabold">{p.title}</h1>
       <p className="mt-2 text-zinc-300 max-w-2xl">{p.description}</p>
       <div className="mt-4 flex flex-wrap gap-2">
-        {p.tags?.map(t => <span key={t} className="text-xs px-2.5 py-1 rounded-full border border-white/10 bg-white/5">{t}</span>)}
+        {p.tags?.map(t => <span key={t} className="text-xs px-2.5 py-1 rounded-full border border-gold bg-white/5/10">{t}</span>)}
       </div>
-      <div className="mt-8 overflow-hidden rounded-2xl border border-white/10">
+      <div className="mt-8 overflow-hidden rounded-2xl poster">
         <img src={cover} alt={p.title} className="w-full h-auto object-cover" />
       </div>
       <div className="mt-6 flex gap-6 text-sm">

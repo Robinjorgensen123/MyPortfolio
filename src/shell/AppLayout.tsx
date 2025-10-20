@@ -1,8 +1,8 @@
 // src/shell/AppLayout.tsx
 import { Outlet, NavLink } from "react-router-dom";
-import { useThemeToggle } from "./ThemeToggle"
-import { Sun, Moon } from "lucide-react"
-import CurtainReveal  from "../components/CurtainReveal"
+import { useThemeToggle } from "./ThemeToggle";
+import { Sun, Moon } from "lucide-react";
+import CurtainReveal from "../components/CurtainReveal";
 
 const ThemeToggleButton: React.FC = () => {
   const { theme, toggle } = useThemeToggle();
@@ -20,50 +20,78 @@ const ThemeToggleButton: React.FC = () => {
 
 export const AppLayout: React.FC = () => {
   return (
-    // Ljus som default + dark: varianter (inte alltid-mörkt!)
-    <div className="min-h-screen flex flex-col bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
-       <CurtainReveal
-        delay={250}
-        durationSec={3.0}       // justera hastighet
-        oncePerSession={true}   // sätt false om den ska spelas varje gång
-        imageUrl="/curtain.jpg" // filen i public/
-        // overlayOpacity={20}  // valfritt: mörk overlay, 0–100
-      />
-      <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-zinc-950/60 border-b border-zinc-900/10 dark:border-white/10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
-          <NavLink to="/" className="font-extrabold text-lg tracking-tight no-underline">
-            Home
-          </NavLink>
+    <div
+      className="min-h-screen flex flex-col dark:text-zinc-100"
+      style={{ color: "var(--cinema-ivory)" }}
+    >
+      <div className="bg-cinema vignette min-h-screen flex flex-col">
+        <CurtainReveal
+          delay={250}
+          durationSec={3.0}
+          oncePerSession={true}
+          imageUrl="/curtain.jpg"
+          // overlayOpacity={20}
+        />
 
-          <nav className="flex items-center gap-6 text-sm">
-            <NavLink to="/cv" className={({ isActive }) => (isActive ? "font-semibold" : "")}>
-              CV
-            </NavLink>
-            <NavLink to="/projects" className={({ isActive }) => (isActive ? "font-semibold" : "")}>
-              Projekt
-            </NavLink>
-            <NavLink to="/about" className={({ isActive }) => (isActive ? "font-semibold" : "")}>
-              Om mig
-            </NavLink>
-            <NavLink to="/contact" className={({ isActive }) => (isActive ? "font-semibold" : "")}>
-              Kontakt
+        <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/5 dark:supports-[backdrop-filter]:bg-zinc-950/30 border-b border-gold">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
+            <NavLink
+              to="/"
+              className="font-extrabold text-lg tracking-tight no-underline text-gold"
+            >
+              ✦ Robin Jörgensen
             </NavLink>
 
-            <ThemeToggleButton />
-          </nav>
-        </div>
-      </header>
+            <nav className="flex items-center gap-6 text-sm">
+              <NavLink
+                to="/CV"
+                className={({ isActive }) =>
+                  `${isActive ? "text-gold font-semibold" : ""} hover:text-gold`
+                }
+              >
+                CV
+              </NavLink>
+              <NavLink
+                to="/projects"
+                className={({ isActive }) =>
+                  `${isActive ? "text-gold font-semibold" : ""} hover:text-gold`
+                }
+              >
+                Projekt
+              </NavLink>
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  `${isActive ? "text-gold font-semibold" : ""} hover:text-gold`
+                }
+              >
+                Om mig
+              </NavLink>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  `${isActive ? "text-gold font-semibold" : ""} hover:text-gold`
+                }
+              >
+                Kontakt
+              </NavLink>
+              <ThemeToggleButton />
+            </nav>
+          </div>
+          <div className="filmstrip" />
+        </header>
 
-      <main className="flex-1">
-        <Outlet />
-      </main>
+        <main className="flex-1">
+          <Outlet />
+        </main>
 
-      <footer className="mt-12 border-t border-zinc-900/10 dark:border-white/10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm text-zinc-500 dark:text-zinc-400 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p>© {new Date().getFullYear()} Robin Jörgensen</p>
-          <p>Byggd med React + Tailwind</p>
-        </div>
-      </footer>
+        <footer className="mt-12 border-t border-gold">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm text-zinc-300 flex flex-col sm:flex-row items-center justify-between gap-2">
+            <p>© {new Date().getFullYear()} Robin Jörgensen</p>
+            <p>Byggd med React + Tailwind</p>
+          </div>
+        </footer>
+      </div>
     </div>
   );
 };
