@@ -66,7 +66,6 @@ const Hero: React.FC = () => (
             "Göteborg eller distans",
             "Period 1: Vecka 2-11, 2026",
             "Period 2: Vecka 14-23, 2026",
-            "Fullstack JavaScript",
           ]}
         />
       </div>
