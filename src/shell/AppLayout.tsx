@@ -24,10 +24,13 @@ export const AppLayout: React.FC = () => {
       <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-zinc-950/60 border-b border-zinc-900/10 dark:border-white/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
           <NavLink to="/" className="font-extrabold text-lg tracking-tight no-underline">
-            du.dev
+            Home
           </NavLink>
 
           <nav className="flex items-center gap-6 text-sm">
+            <NavLink to="/cv" className={({ isActive }) => (isActive ? "font-semibold" : "")}>
+              CV
+            </NavLink>
             <NavLink to="/projects" className={({ isActive }) => (isActive ? "font-semibold" : "")}>
               Projekt
             </NavLink>
