@@ -17,7 +17,7 @@ const CV: React.FC = () => {
                     <a 
                     href="/CV.pdf"
                     download
-                    className="btn brn-primary"
+                    className="btn btn-primary"
                     >
                         Ladda ner PDF
                     </a>
