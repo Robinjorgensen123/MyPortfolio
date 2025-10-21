@@ -23,9 +23,16 @@ const Hero: React.FC = () => (
 
     {/* Innehåll på bioduken (styrt via CinemaContent) */}
     <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
-      <div className="pointer-events-auto w-[min(92vw,42rem)] relative rounded-2xl overflow-hidden aspect-[16/9]">
+      <div className="pointer-events-auto w-[min(92vw,42rem)] relative rounded-2xl overflow-hidden aspect-[16/10]">
 +     {/* Duken täcker exakt inom kortet */}
 +     <CurtainInset imageUrl="/curtain.jpg" durationSec={1.6} delayMs={250} keepFrame />
+        <div
+        className="relative z-10 h-full flex items-center justify-center"
+        style={{
+          paddingLeft: "65px",
+          paddingRight: "65px",
+          paddingTop: "55px",
+        }}>
         <CinemaContent
           title="Söker LIA"
           lines={[
@@ -41,6 +48,7 @@ const Hero: React.FC = () => (
           replayable
           replayLabel="Spela om"
         />
+        </div>
       </div>
     </div>
 
