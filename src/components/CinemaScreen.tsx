@@ -3,8 +3,8 @@ import { motion, type Variants } from "framer-motion";
 
 type Props = {
   lines: string[];
-  widthClass?: string;   // t.ex. "w-full lg:w-[44rem]"
-  heightClass?: string;  // t.ex. "h-[30rem]" (≈ 21:9 känsla)
+  widthClass?: string;   
+  heightClass?: string;  
   align?: "left" | "center";
   delay?: number;        // sekunder före intro börjar
 };

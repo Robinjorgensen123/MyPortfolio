@@ -7,9 +7,10 @@ import ProjectCard from "../components/ProjectCard";
 import SkillsSection from "../components/skillsSection";
 import { projects } from "../data/projects";
 
+import CurtainInset from "../components/CurtainInset"
+
 const Hero: React.FC = () => (
   <section className="relative overflow-hidden h-[70vh] lg:h-[80vh]">
-    {/* Bioduk som fyller heron */}
     <div className="absolute inset-0">
       <CinemaScreen
         widthClass="w-full h-full"
@@ -22,7 +23,9 @@ const Hero: React.FC = () => (
 
     {/* Innehåll på bioduken (styrt via CinemaContent) */}
     <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
-      <div className="pointer-events-auto w-[min(92vw,42rem)]">
+      <div className="pointer-events-auto w-[min(92vw,42rem)] relative rounded-2xl overflow-hidden aspect-[16/9]">
++     {/* Duken täcker exakt inom kortet */}
++     <CurtainInset imageUrl="/curtain.jpg" durationSec={1.6} delayMs={250} keepFrame />
         <CinemaContent
           title="Söker LIA"
           lines={[

@@ -2,7 +2,7 @@
 import { Outlet, NavLink } from "react-router-dom";
 import { useThemeToggle } from "./ThemeToggle";
 import { Sun, Moon } from "lucide-react";
-import CurtainReveal from "../components/CurtainReveal";
+
 
 const ThemeToggleButton: React.FC = () => {
   const { theme, toggle } = useThemeToggle();
@@ -25,15 +25,9 @@ export const AppLayout: React.FC = () => {
       style={{ color: "var(--cinema-ivory)" }}
     >
       <div className="bg-cinema vignette min-h-screen flex flex-col">
-        <CurtainReveal
-          delay={250}
-          durationSec={3.0}
-          oncePerSession={true}
-          imageUrl="/curtain.jpg"
-          // overlayOpacity={20}
-        />
+  
 
-        <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/5 dark:supports-[backdrop-filter]:bg-zinc-950/30 border-b border-gold">
+        <header id ="site-header" className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/5 dark:supports-[backdrop-filter]:bg-zinc-950/30 border-b border-gold">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
             <NavLink
               to="/"

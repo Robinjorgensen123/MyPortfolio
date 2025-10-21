@@ -92,7 +92,7 @@ const sizeToClasses = (size: Props["size"]) => {
             className="inline-flex items-center gap-2 rounded-full border border-gold bg-black/30 backdrop-blur px-3 py-1.5 text-sm hover:text-gold focus:outline-none focus:ring-2 focus:ring-[rgba(212,175,55,.35)]"
             aria-label="Replay animation"
             title="Replay"
-            >{replayLabel}%%%%
+            >{replayLabel}
             </button>
           </div>
         )}
